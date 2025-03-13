@@ -1,77 +1,35 @@
-testname: webMUSHRA Example
-testId: default_example
+# test config mushra page, waveform, 5 conditions, no looping
+
+
+testname: MUSHRA without looping DE-AMPING
+testId: mushra_noloop_DE-AMPING
 bufferSize: 2048
-stopOnErrors: true
+stopOnErrors: false
 showButtonPreviousPage: true
 remoteService: service/write.php
 
 
 pages:
-    - type: generic
-      id: first_page
-      name: Welcome
-      content: Welcome to webMUSHRA!       
+
     - type: mushra
       id: trial1
-      name: MUSHRA
-      content: This training shows how to use our user interface. Please perform the underlined instructions to proceed with the training session. Reminder: In a MUSHRA listening test you are asked to rate the Basic Audio Quality (BAQ) of each condition.<br/>Basic Audio Quality is a single and global attribute that is used to judge any and all detected differences between the reference and the condition.
-      showWaveform: true
+      name: DE-AMPING TRIAL
+      content: If you want to listen to the next audio, first press Stop! Then press play on the next audio.
+
+      showWaveform: false
       enableLooping: true 
-      reference: configs/resources/audio/mono_ref.wav
-      createAnchor35: true
-      createAnchor70: true
+      reference: configs/resources/audio/mono_c1.wav
+      createAnchor35: false
+      createAnchor70: false
       stimuli:
           C1: configs/resources/audio/mono_c1.wav
-          C2: configs/resources/audio/mono_c2.wav
-          C3: configs/resources/audio/mono_c3.wav
-    - 
-          - random
-          - type: mushra
-            id: trial_random_1
-            name: MUSHRA - Random 2
-            content: Due to randomization, this page will be either the second MUSHRA page or the third MUSHRA page.
-            enableLooping: true 
-            reference: configs/resources/audio/mono_ref.wav
-            createAnchor35: false
-            createAnchor70: false
-            stimuli:
-                C1: configs/resources/audio/mono_c1.wav
-                C2: configs/resources/audio/mono_c2.wav
-                C3: configs/resources/audio/mono_c3.wav          
-          - type: mushra
-            id: trial_random_2
-            name: MUSHRA - Random 1
-            content: Due to randomization, this page will be either the second MUSHRA page or the third MUSHRA page.
-            enableLooping: true 
-            reference: configs/resources/audio/mono_ref.wav
-            createAnchor35: false
-            createAnchor70: false
-            stimuli:
-                C1: configs/resources/audio/mono_c1.wav
-                C2: configs/resources/audio/mono_c2.wav
-                C3: configs/resources/audio/mono_c3.wav          
+          C2: configs/resources/audio/run50_Mesa_10.wav
+          C3: configs/resources/audio/run47_Mesa_10.wav
+          C4: configs/resources/audio/DI_10.wav
+
     - type: finish
       name: Thank you
-      content: Thank you for attending!
+      content: Thank you for attending, download your results csv and send it to me.
+      popupContent: Goodbye and have a nice day
       showResults: true
       writeResults: true
-      questionnaire:
-          - type: text
-            label: eMail
-            name: email
-          - type: number
-            label: Age
-            name: age
-            min: 0
-            max: 100
-            default: 30
-          - type: likert
-            name: gender
-            label: Gender
-            response:
-             - value: female
-               label: Female
-             - value: male
-               label: Male
-             - value: other
-               label: Other
