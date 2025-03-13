@@ -14,11 +14,12 @@ pages:
       id: first_page
       name: Welcome to the De-Amping mini listening test
       content: |
-        In this test, you will evaluate the quality of different models.
+        PLEASE READ THE FOLLOWING: In this test, you will evaluate the quality of different models.
         You will listen to a reference DI signal (the undistorted version) and the output of several models.
         Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where
         100 means the sample sounds identical to the clean reference (best quality).
-        0 means the sample sounds very different from the clean reference (worst quality). The input distorted audio is also provided in the conditions as an anchor.
+        0 means the sample sounds very different from the clean reference (worst quality). The distorted audio is also provided in the conditions as an anchor.
+        Please use headphones for this test.
 
 
 
@@ -26,7 +27,7 @@ pages:
     - type: mushra
       id: trial1
       name: Song 1 / 4
-      content:
+      content: 100 sounds identical to the reference (best quality), 0 is the worst
       showWaveform: true
       enableLooping: true 
       reference: configs/resources/audio/t1/17gte180_8RR_out for blood-DI_d_1.wav
@@ -40,8 +41,8 @@ pages:
           C5: configs/resources/audio/t1/18gtd180_8RR_out for blood_d_1.wav
 
     - type: finish
-      name: Thank you
-      content: Thank you for attending, please download your results file and send it to me.
-      popupContent: Goodbye and have a nice day
+      name: Thank you for attending, please download your results file and send the .csv to me via skype chat.
+      content: Have a nice day
+      popupContent:
       showResults: true
       writeResults: true
