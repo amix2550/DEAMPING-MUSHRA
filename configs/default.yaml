@@ -1,8 +1,8 @@
 # test config mushra page, waveform, 5 conditions, no looping
 
 
-testname: MUSHRA without looping DE-AMPING
-testId: mushra_noloop_DE-AMPING
+testname: DE-AMPING MUSHRA
+testId: mushra_DE-AMPING
 bufferSize: 2048
 stopOnErrors: false
 showButtonPreviousPage: true
@@ -10,26 +10,38 @@ remoteService: service/write.php
 
 
 pages:
+    - type: generic
+      id: first_page
+      name: Welcome to the De-Amping mini listening test
+      content: |
+        In this test, you will evaluate the quality of different models.
+        You will listen to a reference DI signal (the undistorted version) and the output of several models.
+        Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where
+        100 means the sample sounds identical to the clean reference (best quality).
+        0 means the sample sounds very different from the clean reference (worst quality). The input distorted audio is also provided in the conditions as an anchor.
+
+
+
 
     - type: mushra
       id: trial1
-      name: DE-AMPING TRIAL
-      content: If you want to listen to the next audio, first press Stop! Then press play on the next audio.
-
-      showWaveform: false
+      name: Song 1 / 4
+      content:
+      showWaveform: true
       enableLooping: true 
-      reference: configs/resources/audio/mono_c1.wav
+      reference: configs/resources/audio/t1/17gte180_8RR_out for blood-DI_d_1.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/mono_c1.wav
-          C2: configs/resources/audio/run50_Mesa_10.wav
-          C3: configs/resources/audio/run47_Mesa_10.wav
-          C4: configs/resources/audio/DI_10.wav
+          C1: configs/resources/audio/t1/run16_18gtd180_8RR_out for blood_d_1.wav
+          C2: configs/resources/audio/t1/run46_18gtd180_8RR_out for blood_d_1.wav
+          C3: configs/resources/audio/t1/run47_18gtd180_8RR_out for blood_d_1.wav
+          C4: configs/resources/audio/t1/run50_18gtd180_8RR_out for blood_d_1.wav
+          C5: configs/resources/audio/t1/18gtd180_8RR_out for blood_d_1.wav
 
     - type: finish
       name: Thank you
-      content: Thank you for attending, download your results csv and send it to me.
+      content: Thank you for attending, please download your results file and send it to me.
       popupContent: Goodbye and have a nice day
       showResults: true
       writeResults: true
