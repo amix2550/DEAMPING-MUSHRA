@@ -12,37 +12,96 @@ remoteService: service/write.php
 pages:
     - type: generic
       id: first_page
-      name: Welcome to the De-Amping mini listening test
+      name: Welcome to the De-Amping listening test
       content: |
         PLEASE READ THE FOLLOWING: In this test, you will evaluate the quality of different models.
-        You will listen to a reference DI signal (the undistorted version) and the output of several models.
+        You will listen to a reference DI signal (the undistorted version) and the output of 4 models.
         Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where
         100 means the sample sounds identical to the clean reference (best quality).
-        0 means the sample sounds very different from the clean reference (worst quality). The distorted audio is also provided in the conditions as an anchor.
-        Please use headphones for this test.
-
-
-
+        0 means the sample sounds very different from the clean reference (worst quality).
+        You will be presented 5 conditions, the output of 4 models + the reference DI (hidden among the conditions).
+        If you would like to listen to the distorted audio they are here: 
 
     - type: mushra
-      id: trial1
-      name: Song 1 / 4
-      content: 100 sounds identical to the reference (best quality), 0 is the worst
+      id: t1
+      name: Song 1 / 5
+      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
       showWaveform: true
       enableLooping: true 
-      reference: configs/resources/audio/t1/17gte180_8RR_out for blood-DI_d_1.wav
+      reference: configs/resources/audio/t1/DI/DI-21gte144_7RR_electrified-DI_e_1.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/t1/run16_18gtd180_8RR_out for blood_d_1.wav
-          C2: configs/resources/audio/t1/run46_18gtd180_8RR_out for blood_d_1.wav
-          C3: configs/resources/audio/t1/run47_18gtd180_8RR_out for blood_d_1.wav
-          C4: configs/resources/audio/t1/run50_18gtd180_8RR_out for blood_d_1.wav
-          C5: configs/resources/audio/t1/18gtd180_8RR_out for blood_d_1.wav
+          C1: configs/resources/audio/t1/run16_20gtd144_7RR_electrified_e_1.wav
+          C2: configs/resources/audio/t1/run46_20gtd144_7RR_electrified_e_1.wav
+          C3: configs/resources/audio/t1/run47_20gtd144_7RR_electrified_e_1.wav
+          C4: configs/resources/audio/t1/run50_20gtd144_7RR_electrified_e_1.wav
+          
+
+    - type: mushra
+      id: t2
+      name: Song 2 / 5
+      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
+      showWaveform: true
+      enableLooping: true 
+      reference: configs/resources/audio/t2/DI/DI-CameronCCV-167.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/t2/run16_CameronCCV-167.wav
+          C2: configs/resources/audio/t2/run46_CameronCCV-167.wav
+          C3: configs/resources/audio/t2/run47_CameronCCV-167.wav
+          C4: configs/resources/audio/t2/run50_CameronCCV-167.wav
+
+    - type: mushra
+      id: t3
+      name: Song 3 / 5
+      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
+      showWaveform: true
+      enableLooping: true 
+      reference: configs/resources/audio/t3/DI/DI-DR-110.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/t3/run16_DR-110.wav
+          C2: configs/resources/audio/t3/run46_DR-110.wav
+          C3: configs/resources/audio/t3/run47_DR-110.wav
+          C4: configs/resources/audio/t3/run50_DR-110.wav
+
+    - type: mushra
+      id: t4
+      name: Song 4 / 5
+      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
+      showWaveform: true
+      enableLooping: true 
+      reference: configs/resources/audio/t4/DI/DI-162.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/t4/run16_JCjazz-162.wav
+          C2: configs/resources/audio/t4/run46_JCjazz-162.wav
+          C3: configs/resources/audio/t4/run47_JCjazz-162.wav
+          C4: configs/resources/audio/t4/run50_JCjazz-162.wav
+
+    - type: mushra
+      id: t5
+      name: Song 5 / 5
+      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
+      showWaveform: true
+      enableLooping: true 
+      reference: configs/resources/audio/t5/DI/MesaBoogieMarkV-Crunch-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/t5/run16_MesaBoogieMarkV-Crunch.wav
+          C2: configs/resources/audio/t5/run46_MesaBoogieMarkV-Crunch.wav
+          C3: configs/resources/audio/t5/run47_MesaBoogieMarkV-Crunch.wav
+          C4: configs/resources/audio/t5/run50_MesaBoogieMarkV-Crunch.wav
+
 
     - type: finish
       name: Thank you for attending, please download your results file and send the .csv to me via skype chat.
-      content: Have a nice day
+      content: Download here, have a nice day!
       popupContent:
       showResults: true
       writeResults: true
