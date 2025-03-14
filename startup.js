@@ -76,6 +76,10 @@ function addPagesToPageManager(_pageManager, _pages) {
     } else {
       var pageConfig = _pages[i];
       if (pageConfig.type == "generic") {
+        // Replace \n with <br> in the content
+        if (pageConfig.content) {
+          pageConfig.content = pageConfig.content.replace(/\n/g, "<br>");
+        }
         _pageManager.addPage(new GenericPage(_pageManager, pageConfig));
       } else if (pageConfig.type == "consent") {
         _pageManager.addPage(new ConsentPage(_pageManager, pageTemplateRenderer, pageConfig));

@@ -12,15 +12,20 @@ remoteService: service/write.php
 pages:
     - type: generic
       id: first_page
-      name: Welcome to the De-Amping listening test
+      name: Welcome to the de-amping listening test
       content: |
-        PLEASE READ THE FOLLOWING: In this test, you will evaluate the quality of different models.
+        PLEASE READ THE FOLLOWING
+        
+        In this test, you will evaluate the quality of different models.
         You will listen to a reference DI signal (the undistorted version) and the output of 4 models.
-        Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where
+
+        Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where:
         100 means the sample sounds identical to the clean reference (best quality).
         0 means the sample sounds very different from the clean reference (worst quality).
+
         You will be presented 5 conditions, the output of 4 models + the reference DI (hidden among the conditions).
-        If you would like to listen to the distorted audio they are here: 
+
+        If you would like to listen to the distorted input audio, they are here: https://e.pcloud.link/publink/show?code=kZ7oAlZFhtA6pJBhhySkQmM5Eua9JjkbeOV
 
     - type: mushra
       id: t1
