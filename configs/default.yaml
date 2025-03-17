@@ -22,6 +22,7 @@ pages:
         Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where:
         100 means the sample sounds identical to the clean reference (best quality).
         0 means the sample sounds very different from the clean reference (worst quality).
+        You are allowed to give multiple sample sounds the same score.
 
         You will be presented 5 conditions, the output of 4 models + the reference DI (hidden among the conditions).
 
