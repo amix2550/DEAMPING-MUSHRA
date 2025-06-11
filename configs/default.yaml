@@ -18,8 +18,10 @@ pages:
         
         The test should be done using HEADPHONES.
 
-        You will evaluate the quality of different models.
-        You will listen to a reference clean guitar recording (undistorted) and the output of 4 deep learning models which aim to match the clean reference recording.
+        Works in the Chrome or Safari browser.
+
+        You will evaluate the quality of different deep learning models that remove distortion from guitar signals ("de-amping").
+        You will listen to a reference clean guitar recording (undistorted) and the output of 4 models which de-amped distorted recordings and aimed to match the clean reference recording.
 
 
         Your task is to compare each test sample to the clean reference and rate its resemblance on a scale from 0 to 100, where:
