@@ -5,7 +5,7 @@ testname: DE-AMPING MUSHRA
 testId: mushra_DE-AMPING
 bufferSize: 2048
 stopOnErrors: false
-showButtonPreviousPage: true
+showButtonPreviousPage: false
 remoteService: service/write.php
 
 
@@ -16,97 +16,306 @@ pages:
       content: |
         PLEASE READ THE FOLLOWING
         
-        In this test, you will evaluate the quality of different models.
-        You will listen to a reference DI signal (the undistorted version) and the output of 4 models.
+        The test should be done using HEADPHONES.
 
-        Your task is to compare each test sample to the clean reference and rate its quality on a scale from 0 to 100, where:
-        100 means the sample sounds identical to the clean reference (best quality).
-        0 means the sample sounds very different from the clean reference (worst quality).
+        You will evaluate the quality of different models.
+        You will listen to a reference clean guitar recording (undistorted) and the output of 4 deep learning models which aim to match the clean reference recording.
+
+
+        Your task is to compare each test sample to the clean reference and rate its resemblance on a scale from 0 to 100, where:
+        100 means the sample sounds identical to the clean reference.
+        0 means the sample sounds very different from the clean reference.
         You are allowed to give multiple sample sounds the same score.
 
-        You will be presented 5 conditions, the output of 4 models + the reference DI (hidden among the conditions).
 
-        If you would like to listen to the distorted input audio, they are here: https://e.pcloud.link/publink/show?code=kZ7oAlZFhtA6pJBhhySkQmM5Eua9JjkbeOV
+        At the beggining you will have to fill out a small form, followed by one example rating page to adjust the volume level and familiarize yourself with the rating environment.
+        You will be asked to rank the outputs for 16 song excerpts.
+
+        At the end of the test, download the results file and send it to me via chat or mail.
+
+
+    - type: consent
+      id: consent_page
+      name: Consent
+      mustConsent: false
+      content: |
+        <h3>Consent Form</h3>
+        <p>You are participating in a listening test. For this, we want to store your answers to the following questions.</p>
+        <p>Do you give consent for this?</p>
+
+        
+
+        
+    - type: mushra
+      id: t0
+      name: Example rating page for the listening test. You can skip it if you want to go to the test directly.
+      content: Adjust the volume now to your liking<br/> 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      showWaveform: true
+      enableLooping: true 
+      reference: configs/resources/audio/t0/DI/DI-21gte144_7RR_electrified-DI_e_1.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/t0/run16_20gtd144_7RR_electrified_e_1.wav
+          C2: configs/resources/audio/t0/run46_20gtd144_7RR_electrified_e_1.wav
+          C3: configs/resources/audio/t0/run47_20gtd144_7RR_electrified_e_1.wav
+          C4: configs/resources/audio/t0/run50_20gtd144_7RR_electrified_e_1.wav
+      
+    
+    - type: generic
+      id: test_start
+      name: 
+      content: |
+
+
+
+        The test will start now.
+        <br/>
+        <br/>
 
     - type: mushra
+
       id: t1
-      name: Song 1 / 5
-      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
-      showWaveform: true
-      enableLooping: true 
-      reference: configs/resources/audio/t1/DI/DI-21gte144_7RR_electrified-DI_e_1.wav
+      name: Track 1 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t1/DI/16gtd130_6RR_bad signs_g_1-DI.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/t1/run16_20gtd144_7RR_electrified_e_1.wav
-          C2: configs/resources/audio/t1/run46_20gtd144_7RR_electrified_e_1.wav
-          C3: configs/resources/audio/t1/run47_20gtd144_7RR_electrified_e_1.wav
-          C4: configs/resources/audio/t1/run50_20gtd144_7RR_electrified_e_1.wav
-          
+        C1: configs/resources/audio/t1/run37_16gtd130_6RR_bad signs_g_1.wav
+        C2: configs/resources/audio/t1/run46.2_16gtd130_6RR_bad signs_g_1.wav
+        C3: configs/resources/audio/t1/run50_16gtd130_6RR_bad signs_g_1.wav
+        C4: configs/resources/audio/t1/run63.2_16gtd130_6RR_bad signs_g_1.wav
 
     - type: mushra
+
       id: t2
-      name: Song 2 / 5
-      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
-      showWaveform: true
-      enableLooping: true 
-      reference: configs/resources/audio/t2/DI/DI-CameronCCV-167.wav
+      name: Track 2 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t2/DI/18gtd180_8RR_into trouble_e_1-DI.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/t2/run16_CameronCCV-167.wav
-          C2: configs/resources/audio/t2/run46_CameronCCV-167.wav
-          C3: configs/resources/audio/t2/run47_CameronCCV-167.wav
-          C4: configs/resources/audio/t2/run50_CameronCCV-167.wav
+        C1: configs/resources/audio/t2/run37_18gtd180_8RR_into trouble_e_1.wav
+        C2: configs/resources/audio/t2/run46.2_18gtd180_8RR_into trouble_e_1.wav
+        C3: configs/resources/audio/t2/run50_18gtd180_8RR_into trouble_e_1.wav
+        C4: configs/resources/audio/t2/run63.2_18gtd180_8RR_into trouble_e_1.wav
 
     - type: mushra
+
       id: t3
-      name: Song 3 / 5
-      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
-      showWaveform: true
-      enableLooping: true 
-      reference: configs/resources/audio/t3/DI/DI-DR-110.wav
+      name: Track 3 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t3/DI/19gtd104_8RR_shake it_e_1-DI.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/t3/run16_DR-110.wav
-          C2: configs/resources/audio/t3/run46_DR-110.wav
-          C3: configs/resources/audio/t3/run47_DR-110.wav
-          C4: configs/resources/audio/t3/run50_DR-110.wav
+        C1: configs/resources/audio/t3/run37_19gtd104_8RR_shake it_e_1.wav
+        C2: configs/resources/audio/t3/run46.2_19gtd104_8RR_shake it_e_1.wav
+        C3: configs/resources/audio/t3/run50_19gtd104_8RR_shake it_e_1.wav
+        C4: configs/resources/audio/t3/run63.2_19gtd104_8RR_shake it_e_1.wav
 
     - type: mushra
+
       id: t4
-      name: Song 4 / 5
-      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
-      showWaveform: true
-      enableLooping: true 
-      reference: configs/resources/audio/t4/DI/DI-162.wav
+      name: Track 4 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t4/DI/amplitube 5_Bathory_Armageddon-DI.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/t4/run16_JCjazz-162.wav
-          C2: configs/resources/audio/t4/run46_JCjazz-162.wav
-          C3: configs/resources/audio/t4/run47_JCjazz-162.wav
-          C4: configs/resources/audio/t4/run50_JCjazz-162.wav
+        C1: configs/resources/audio/t4/run37_amplitube 5_Bathory_Armageddon.wav
+        C2: configs/resources/audio/t4/run46.2_amplitube 5_Bathory_Armageddon.wav
+        C3: configs/resources/audio/t4/run50_amplitube 5_Bathory_Armageddon.wav
+        C4: configs/resources/audio/t4/run63.2_amplitube 5_Bathory_Armageddon.wav
 
     - type: mushra
+
       id: t5
-      name: Song 5 / 5
-      content: 100 (best quality -> identical to reference), 0 (worst quality) | 5 conditions = output of 4 different models + reference
-      showWaveform: true
-      enableLooping: true 
-      reference: configs/resources/audio/t5/DI/MesaBoogieMarkV-Crunch-DI.wav
+      name: Track 5 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t5/DI/amplitube2-KGLW_Hell-DI.wav
       createAnchor35: false
       createAnchor70: false
       stimuli:
-          C1: configs/resources/audio/t5/run16_MesaBoogieMarkV-Crunch.wav
-          C2: configs/resources/audio/t5/run46_MesaBoogieMarkV-Crunch.wav
-          C3: configs/resources/audio/t5/run47_MesaBoogieMarkV-Crunch.wav
-          C4: configs/resources/audio/t5/run50_MesaBoogieMarkV-Crunch.wav
+        C1: configs/resources/audio/t5/run37_amplitube2-KGLW_Hell.wav
+        C2: configs/resources/audio/t5/run46.2_amplitube2-KGLW_Hell.wav
+        C3: configs/resources/audio/t5/run50_amplitube2-KGLW_Hell.wav
+        C4: configs/resources/audio/t5/run63.2_amplitube2-KGLW_Hell.wav
+
+    - type: mushra
+
+      id: t6
+      name: Track 6 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t6/DI/Ftwin-39-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t6/run37_Ftwin-39.wav
+        C2: configs/resources/audio/t6/run46.2_Ftwin-39.wav
+        C3: configs/resources/audio/t6/run50_Ftwin-39.wav
+        C4: configs/resources/audio/t6/run63.2_Ftwin-39.wav
+
+    - type: mushra
+
+      id: t7
+      name: Track 7 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t7/DI/JCjazz-198-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t7/run37_JCjazz-198.wav
+        C2: configs/resources/audio/t7/run46.2_JCjazz-198.wav
+        C3: configs/resources/audio/t7/run50_JCjazz-198.wav
+        C4: configs/resources/audio/t7/run63.2_JCjazz-198.wav
+
+    - type: mushra
+
+      id: t8
+      name: Track 8 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t8/DI/Marshall-67-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t8/run37_Marshall-67.wav
+        C2: configs/resources/audio/t8/run46.2_Marshall-67.wav
+        C3: configs/resources/audio/t8/run50_Marshall-67.wav
+        C4: configs/resources/audio/t8/run63.2_Marshall-67.wav
+
+    - type: mushra
+
+      id: t9
+      name: Track 9 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t9/DI/CA3+LeadBlock-41-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t9/run37_CA3+LeadBlock-41.wav
+        C2: configs/resources/audio/t9/run46.2_CA3+LeadBlock-41.wav
+        C3: configs/resources/audio/t9/run50_CA3+LeadBlock-41.wav
+        C4: configs/resources/audio/t9/run63.2_CA3+LeadBlock-41.wav
+
+    - type: mushra
+
+      id: t10
+      name: Track 10 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t10/DI/DR-22-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t10/run37_DR-22.wav
+        C2: configs/resources/audio/t10/run46.2_DR-22.wav
+        C3: configs/resources/audio/t10/run50_DR-22.wav
+        C4: configs/resources/audio/t10/run63.2_DR-22.wav
+
+    - type: mushra
+
+      id: t11
+      name: Track 11 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t11/DI/DR-3-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t11/run37_DR-3.wav
+        C2: configs/resources/audio/t11/run46.2_DR-3.wav
+        C3: configs/resources/audio/t11/run50_DR-3.wav
+        C4: configs/resources/audio/t11/run63.2_DR-3.wav
+
+    - type: mushra
+
+      id: t12
+      name: Track 12 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t12/DI/HarleyBenton_ROdent_MTurbo-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t12/run37_HarleyBenton_ROdent_MTurbo.wav
+        C2: configs/resources/audio/t12/run46.2_HarleyBenton_ROdent_MTurbo.wav
+        C3: configs/resources/audio/t12/run50_HarleyBenton_ROdent_MTurbo.wav
+        C4: configs/resources/audio/t12/run63.2_HarleyBenton_ROdent_MTurbo.wav
+
+    - type: mushra
+
+      id: t13
+      name: Track 13 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t13/DI/IbanezTS9-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t13/run37_IbanezTS9.wav
+        C2: configs/resources/audio/t13/run46.2_IbanezTS9.wav
+        C3: configs/resources/audio/t13/run50_IbanezTS9.wav
+        C4: configs/resources/audio/t13/run63.2_IbanezTS9.wav
+
+    - type: mushra
+
+      id: t14
+      name: Track 14 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t14/DI/nam-blacksabbath-paranoid-88-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t14/run37_nam-blacksabbath-paranoid-88.wav
+        C2: configs/resources/audio/t14/run46.2_nam-blacksabbath-paranoid-88.wav
+        C3: configs/resources/audio/t14/run50_nam-blacksabbath-paranoid-88.wav
+        C4: configs/resources/audio/t14/run63.2_nam-blacksabbath-paranoid-88.wav
+
+    - type: mushra
+
+      id: t15
+      name: Track 15 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t15/DI/nam-leftbehind-68-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t15/run37_nam-leftbehind-68.wav
+        C2: configs/resources/audio/t15/run46.2_nam-leftbehind-68.wav
+        C3: configs/resources/audio/t15/run50_nam-leftbehind-68.wav
+        C4: configs/resources/audio/t15/run63.2_nam-leftbehind-68.wav
+
+    - type: mushra
+
+      id: t16
+      name: Track 16 / 16
+      content: 100 (best → identical to reference)<br/> 0 (worst → no resemblance to reference)
+      enableLooping: true
+      reference: configs/resources/audio/t16/DI/T808Mod-73-DI.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+        C1: configs/resources/audio/t16/run37_T808Mod-73.wav
+        C2: configs/resources/audio/t16/run46.2_T808Mod-73.wav
+        C3: configs/resources/audio/t16/run50_T808Mod-73.wav
+        C4: configs/resources/audio/t16/run63.2_T808Mod-73.wav
 
 
     - type: finish
-      name: Thank you for attending, please download your results file and send the .csv to me via skype chat.
+      name: Thank you for attending, please download your results file and send it to me via chat or mail.
       content: Download here, have a nice day!
       popupContent:
       showResults: true

@@ -30,11 +30,29 @@ window.onresize = function(event) {
 
 
 // callbacks
+
+
 function callbackFilesLoaded() {
   pageManager.start();
   pageTemplateRenderer.renderProgressBar(("page_progressbar"));
   pageTemplateRenderer.renderHeader(("page_header"));
   pageTemplateRenderer.renderNavigation(("page_navigation"));
+  pageManager.addCallbackPageEventChanged(function () {
+    setTimeout(function () {
+      const currentPage = pageManager.getCurrentPage();
+      const shouldHidePrevious = currentPage instanceof FinishPage || currentPage instanceof MushraPage;
+  
+      $("#page_navigation button").each(function () {
+        if ($(this).text().trim().toLowerCase() === "previous") {
+          if (shouldHidePrevious) {
+            $(this).hide();
+          } else {
+            $(this).show();
+          }
+        }
+      });
+    }, 50); // Delay ensures DOM is ready
+  });
 
   if (config.stopOnErrors == false || !errorHandler.errorOccurred()) {
     $.mobile.loading("hide");
@@ -82,7 +100,7 @@ function addPagesToPageManager(_pageManager, _pages) {
         }
         _pageManager.addPage(new GenericPage(_pageManager, pageConfig));
       } else if (pageConfig.type == "consent") {
-        _pageManager.addPage(new ConsentPage(_pageManager, pageTemplateRenderer, pageConfig));
+        _pageManager.addPage(new ConsentPage(_pageManager, pageTemplateRenderer, pageConfig, session));
       } else if (pageConfig.type == "volume") {
         var volumePage = new VolumePage(_pageManager, audioContext, audioFileLoader, pageConfig, config.bufferSize, errorHandler, config.language);
         _pageManager.addPage(volumePage);
@@ -250,3 +268,4 @@ YAML.load(configFile, (function(result) {
   config = result;
   startup(result);
 }));
+
